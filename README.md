@@ -16,6 +16,9 @@ Organize and sell tickets with your friends, business or small community. You ha
 - Using React Final Form to create re-usable form inputs with validation
 - Paging, Sorting and Filtering
 - Using SignalR to enable real time web communication to a chat feature in our app
+- OTP code and custom generated jwt code verification for mail
+- QR code generation and reading
+- Easy login with social media accounts
 ## Goal
 The aim at the end of the project is to reach events that big giants such as Biletix and Passo could not reach. Everyone can see the big concerts in the VW arena at Dorock XL, and if a smaller club does not inform about the event organized by the cafe that night on their Instagram account, there is no application that they can deliver. Or you are organizing an event with a group of 10-15 people and you want to make it open to the outside. In such cases, we will assist users where we can advertise the event and simply approve their invitation to participate if we wish, by ticketing them.
 You can see the event organized by Hayalkahvesi or any organizer, but where is the best ticket? Instead of getting lost on Biletix, passo, Biletinial... sites, find the most suitable ticket on the internet among events such as Cimri.com or akakçe.
