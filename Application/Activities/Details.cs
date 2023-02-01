@@ -24,7 +24,7 @@ namespace Application.Activities
             {
                 var activity = await _context.Activities.FindAsync(request.Id);
 
-                return Result<Activity>.Succes(activity);
+                return Result<Activity>.Success(activity);
             }
         }
     }
