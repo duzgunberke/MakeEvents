@@ -4,32 +4,40 @@ import { User, UserFormValues } from "../models/user";
 import { router } from "../router/Routes";
 import { store } from "./store";
 
-export default class UserStore{
-    user:User | null = null;
+export default class UserStore {
+    user: User | null = null;
 
-    constructor(){
+    constructor() {
         makeAutoObservable(this)
     }
 
-    get isLoggedIn(){
+    get isLoggedIn() {
         return !!this.user;
     }
 
-    login= async (creds:UserFormValues) =>{
-        try{
+    login = async (creds: UserFormValues) => {
+        try {
             const user = await agent.Account.login(creds);
             store.commonStore.setToken(user.token);
-            runInAction(()=>this.user=user);
+            runInAction(() => this.user = user);
             router.navigate('/activities');
-        }catch(error){
+        } catch (error) {
             throw error;
         }
     }
 
-    loguot=()=>{
+    logout = () => {
         store.commonStore.setToken(null);
-        localStorage.removeItem('jwt');
-        this.user=null;
+        this.user = null;
         router.navigate('/');
+    }
+
+    getUser = async ()=>{
+        try{
+            const user=await agent.Account.current();
+            runInAction(()=>this.user = user);
+        }catch (error){
+            console.log(error);
+        }
     }
 }
