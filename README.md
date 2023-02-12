@@ -8,6 +8,7 @@ Organize and sell tickets with your friends, business or small community. You ha
 - Creating a multi-project solution using the the ASP.NET Core WebAPI and the React app using the DotNet CLI and the create-react-app utility.
 - Clean Architecture and the CQRS + Mediator pattern
 - Setting up and configuring ASP.NET Core identity for authentication
+- Join invitations sent by users are queued with RabbitMQ.
 - Adding a Client side login and register function to our React application
 - Using React Router
 - Using AutoMapper in ASP.NET Core
