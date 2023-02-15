@@ -36,7 +36,7 @@ export default class ProfileStore{
     uploadPhoto = async (file: Blob) => {
         this.uploading = true;
         try {
-            const result = await agent.Profiles.uploadPhoto(file);
+            const response = await agent.Profiles.uploadPhoto(file);
             const photo = response.data;
             runInAction(() => {
                 if(this.profile){
@@ -47,7 +47,7 @@ export default class ProfileStore{
                     }
                 }
                 this.uploading = false;
-            }
+            });
         } catch (error) {
             console.log(error);
             runInAction(() => this.uploading = false);

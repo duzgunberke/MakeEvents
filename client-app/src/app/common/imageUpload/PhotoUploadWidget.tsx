@@ -3,13 +3,18 @@ import { Button, Grid, Header, Image } from "semantic-ui-react";
 import PhotoWidgetCropper from "./PhotoWidgetCropper";
 import PhotoWidgetDropzone from "./PhotoWidgetDropzone";
 
-export default function PhotoUploadWidget() {
+interface Props {
+    uploadPhoto: (file: Blob) => void;
+    loading: boolean;
+}
+
+export default function PhotoUploadWidget({ uploadPhoto, loading }: Props) {
     const [files, setFiles] = useState<any>([]);
     const [cropper, setCropper] = useState<Cropper>();
 
     function onCrop() {
         if (cropper) {
-            cropper.getCroppedCanvas().toBlob(blob => console.log(blob));
+            cropper.getCroppedCanvas().toBlob(blob => uploadPhoto(blob!));
         }
     }
 
@@ -21,6 +26,7 @@ export default function PhotoUploadWidget() {
 
     return (
         <Grid>
+            <Grid.Column width={1} />
             <Grid.Column width={4}>
                 <Header color='teal' sub content='Step 1 - Add Photo' />
                 <PhotoWidgetDropzone setFiles={setFiles} />
@@ -39,8 +45,8 @@ export default function PhotoUploadWidget() {
                 <>
                 <div className='img-preview' style={{ minHeight: 200, overflow: 'hidden' }} />
                 <Button.Group widths={2}>
-                    <Button onClick={onCrop} positive icon='check' />
-                    <Button onClick={() => setFiles([])} icon='close' />
+                    <Button loading={loading} onClick={onCrop} positive icon='check' />
+                    <Button disabled={loading} onClick={() => setFiles([])} icon='close' />
                 </Button.Group>
                 </>}
             </Grid.Column>
