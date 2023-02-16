@@ -13,7 +13,9 @@ Organize and sell tickets with your friends, business or small community. You ha
 - Using React Router
 - Using AutoMapper in ASP.NET Core
 - Building a great looking UI using Semantic UI
-- Adding Photo Upload widget and creating user profile pages  
+- Adding Photo Upload widget and creating user profile pages 
+- Adult content control of the uploaded photo is done with Tensorflow.js
+- Photos are kept on cloudinary platform, which is a cloud service
 - Using React Final Form to create re-usable form inputs with validation
 - Paging, Sorting and Filtering
 - Using SignalR to enable real time web communication to a chat feature in our app
