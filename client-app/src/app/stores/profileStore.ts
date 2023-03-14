@@ -9,6 +9,7 @@ export default class ProfileStore{
     uploading: boolean = false;
     loading = false;
     followings: Profile[] = [];
+    loadingFollowings = false;
 
     constructor(){
         makeAutoObservable(this);
@@ -128,6 +129,20 @@ export default class ProfileStore{
             });
         }catch(error){
             runInAction(() => this.loading = false);
+            console.log(error);
+        }
+    }
+
+    loadFollowings = async (predicate: string) => {
+        this.loading = true;
+        try {
+            const followings = await agent.Profiles.listFollowings(this.profile!.username ,predicate);
+            runInAction(() => {
+                this.followings = followings;
+                this.loadingFollowings = false;
+            });
+        }catch(error){
+            runInAction(() => this.loadingFollowings = false);
             console.log(error);
         }
     }
