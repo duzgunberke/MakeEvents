@@ -75,7 +75,7 @@ const requests={
 }
 
 const Activities ={
-    list:()=>requests.get<PaginationResult<Activity[]>>('/activities'),
+    list:(params:URLSearchParams)=>axios.get<PaginationResult<Activity[]>>('/activities',{params}).then(responseBody),
     details:(id:string)=>requests.get<Activity>(`/activities/${id}`),
     create:(activity:ActivityFormValues)=>requests.post<void>('/activities',activity),
     update:(activity:ActivityFormValues)=>requests.put<void>(`/activities/${activity.id}`,activity),
