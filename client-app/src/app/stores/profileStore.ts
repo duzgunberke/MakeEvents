@@ -1,9 +1,10 @@
 import { makeAutoObservable, reaction, runInAction } from "mobx";
 import agent from "../api/agent";
-import { Photo, Profile } from "../models/profile";
+import { Photo, Profile, UserActivity } from "../models/profile";
 import { store } from "./store";
 
 export default class ProfileStore{
+    currentUserProfile: Profile | null = null;
     profile: Profile | null = null;
     loadingProfile = false;
     uploading: boolean = false;
@@ -11,6 +12,8 @@ export default class ProfileStore{
     followings: Profile[] = [];
     loadingFollowings = false;
     activeTab: number = 0;
+    userActivities: UserActivity[] = [];
+    loadingActivities = false;
 
     constructor(){
         makeAutoObservable(this);
