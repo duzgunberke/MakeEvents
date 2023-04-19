@@ -11,13 +11,13 @@ export default observer(function HomePage(){
         <Segment inverted textAlign="center" vertical className='masthead'>
             <Container text>
                 <Header as='h1'inverted>
-                    <Image size='massive' src='/assets/logo.png'alt='logo' style={{marginBottom: 12}} />
-                    Make Events
+                    <Image size='massive' src='/assets/vivevent.png' alt='logo' style={{marginBottom: 12}} />
+                    VivEvent 
                 </Header>
                 {userStore.isLoggedIn ? 
                 (
                     <>
-                        <Header as='h2' inverted content='Welcome to MakeEvents'/>
+                        <Header as='h2' inverted content='Welcome to VivEvent'/>
                         <Button as={Link} to='/activities' size='huge' inverted>
                              Go to Activities!
                         </Button>
